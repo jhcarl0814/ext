@@ -1,7 +1,7 @@
 ﻿#ifndef EXT_UTILITY_H
 #define EXT_UTILITY_H
 
-template<class T>
+template<typename T>
 constexpr T &unmove(T &&t) { return static_cast<T &>(t); } //https://stackoverflow.com/a/67059296/8343353
 
 #if __cpp_lib_unreachable >= 202202L
@@ -28,5 +28,26 @@ struct type_list_t
 template<auto... values>
 struct value_list_t
 {};
+
+template <typename T>
+T forward_decltype_auto(std::remove_reference_t<T>& arg)// https://stackoverflow.com/questions/57438217/are-there-any-realistic-use-cases-for-decltypeauto-variables
+{
+    return std::forward<T>(arg);
+}
+
+template <typename F, typename G>
+auto invoke_return(F&& f, G&& g)-> decltype(std::forward<F>(f)())requires(std::is_reference_v<decltype(std::forward<F>(f)())>)// https://stackoverflow.com/questions/57444893/correctly-propagating-a-decltypeauto-variable-from-a-function
+{
+    decltype(auto) result{std::forward<F>(f)()};
+    std::forward<G>(g)(decltype(result)(result));
+    return decltype(result)(result);
+}
+template <typename F, typename G>
+auto invoke_return(F&& f, G&& g)-> decltype(std::forward<F>(f)())requires(!std::is_reference_v<decltype(std::forward<F>(f)())>)
+{
+    decltype(auto) result{std::forward<F>(f)()};
+    std::forward<G>(g)(result);
+    return result;
+}
 
 #endif // EXT_UTILITY_H

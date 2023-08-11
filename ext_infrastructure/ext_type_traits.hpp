@@ -55,11 +55,11 @@ struct remove_rvalue_reference: std::type_identity<typename std::conditional_t<s
 template<typename T>
 using remove_rvalue_reference_t = typename remove_rvalue_reference<T>::type;
 
-template<class T>
+template<typename T>
 struct remove_cvlref: std::type_identity<std::remove_cv_t<remove_lvalue_reference_t<T>>>
 {
 };
-template<class T>
+template<typename T>
 using remove_cvlref_t = typename remove_cvlref<T>::type;
 
 template<typename T, typename... Ts>
@@ -69,39 +69,10 @@ struct is_same_any: std::bool_constant<(std::is_same_v<T, Ts> || ...)> //https:/
 template<typename T, typename... Ts>
 constexpr bool is_same_any_v = is_same_any<T, Ts...>::value;
 
-#if __cpp_lib_forward_like >= 202207L
-#else
 namespace std
 {
-    template<class T, class U>
-    [[nodiscard]] constexpr auto &&forward_like(U &&x) noexcept
-    {
-        constexpr bool is_adding_const = std::is_const_v<std::remove_reference_t<T>>;
-        if constexpr(std::is_lvalue_reference_v<T &&>) {
-            if constexpr(is_adding_const)
-                return std::as_const(x);
-            else
-                return static_cast<U &>(x);
-        }
-        else {
-            if constexpr(is_adding_const)
-                return std::move(std::as_const(x));
-            else
-                return std::move(x);
-        }
-    }
-} // namespace std
-#endif
-namespace std
-{
-    template<class T, class U>
+    template<typename T, typename U>
     using forward_like_t = decltype(forward_like<T>(std::declval<U>()));
-}
-
-template<typename T>
-T forward_decltype_auto(std::remove_reference_t<T> &arg) //https://stackoverflow.com/a/57440814/8343353
-{
-    return std::forward<T>(arg);
 }
 
 template<typename T>

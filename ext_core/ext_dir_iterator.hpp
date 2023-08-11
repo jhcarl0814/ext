@@ -33,7 +33,6 @@ struct ext_dir_iterator: boost::stl_interfaces::proxy_iterator_interface<ext_dir
     void operator++(int);
 
     bool operator==(std::default_sentinel_t const &) const;
-    bool operator!=(std::default_sentinel_t const &) const;
 };
 
 #endif // EXT_DIR_ITERATOR_H

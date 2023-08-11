@@ -609,7 +609,7 @@ namespace ext_debug
 
 #include <streambuf>
 #include <ostream>
-    template<class cT, class traits = std::char_traits<cT>>
+    template<typename cT, typename traits = std::char_traits<cT>>
     class basic_nullbuf: public std::basic_streambuf<cT, traits> //https://stackoverflow.com/a/760353/8343353
     {
         typename traits::int_type overflow(typename traits::int_type c)
@@ -617,7 +617,7 @@ namespace ext_debug
             return traits::not_eof(c); // indicate success
         }
     };
-    template<class cT, class traits = std::char_traits<cT>>
+    template<typename cT, typename traits = std::char_traits<cT>>
     class basic_onullstream: public std::basic_ostream<cT, traits>
     {
       public:

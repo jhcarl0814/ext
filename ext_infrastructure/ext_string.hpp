@@ -2,6 +2,7 @@
 #define EXT_INFRASTRUCTURE__EXT_STRING_H
 
 #include "ext_type_traits.hpp"
+#include "ext_utility.hpp"
 
 template<std::size_t n>
 struct template_str_t: public std::array<char, n>

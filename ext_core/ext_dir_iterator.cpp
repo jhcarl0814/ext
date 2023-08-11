@@ -52,11 +52,6 @@ bool ext_dir_iterator::operator==(std::default_sentinel_t const &) const
     assert(!default_or_value_initialized);
     return !value.has_value() && !dir_iterator->hasNext();
 }
-bool ext_dir_iterator::operator!=(std::default_sentinel_t const &) const
-{
-    assert(!default_or_value_initialized);
-    return value.has_value() || dir_iterator->hasNext();
-}
 
 namespace std
 {

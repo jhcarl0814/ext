@@ -287,7 +287,7 @@ namespace dot
         auto print_html_attr_value = overloaded{
             [&](std::u8string value)
             {
-                os << '"' << std::string(reinterpret_cast<char const*>(to_html_escaped(value).data())) << '"';
+                os << '"' << std::string(reinterpret_cast<char const *>(to_html_escaped(value).data())) << '"';
             },
             [&](int value)
             {
@@ -357,7 +357,7 @@ namespace dot
         };
         auto print_html_attr_key_value = [&](std::u8string key, auto &&value)
         {
-            os << ' ' << std::string(reinterpret_cast<char const*>(key.data())) << '=';
+            os << ' ' << std::string(reinterpret_cast<char const *>(key.data())) << '=';
             print_html_attr_value(std::forward<decltype(value)>(value));
         };
 
@@ -436,7 +436,7 @@ namespace dot
                            [&](double const &value)
                            { os << value; },
                            [&](std::u8string const &value)
-                           { os << '"' << std::string(reinterpret_cast<char const*>(to_html_escaped(value).data())) << '"'; },
+                           { os << '"' << std::string(reinterpret_cast<char const *>(to_html_escaped(value).data())) << '"'; },
                            [&](html_label_t const &value)
                            { os << "<";print_with_indent(os, value, g, indent_level); os << ">"; },
                        },
@@ -456,7 +456,7 @@ namespace dot
                 os << ':';
                 if(*node_id.compass_pt == compass_pt_t::n) os << "n";
                 else if(*node_id.compass_pt == compass_pt_t::ne) os << "ne";
-                else if(*node_id.compass_pt == compass_pt_t::e) os << "oe";
+                else if(*node_id.compass_pt == compass_pt_t::e) os << "e";
                 else if(*node_id.compass_pt == compass_pt_t::se) os << "se";
                 else if(*node_id.compass_pt == compass_pt_t::s) os << "s";
                 else if(*node_id.compass_pt == compass_pt_t::sw) os << "sw";
@@ -589,7 +589,7 @@ namespace dot
             {
                 std::visit(overloaded{
                                [&](std::u8string const &value)
-                               { os << std::string(reinterpret_cast<char const*>(to_html_escaped(value).data())); },
+                               { os << std::string(reinterpret_cast<char const *>(to_html_escaped(value).data())); },
                                [&](br_t const &value)
                                { print_with_indent(os, value, g, indent_level); },
                                [&](std::pair<sub_t, text_t> const &value)
