@@ -4,9 +4,9 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <boost/mp11.hpp>
-#include "ext_type_traits.hpp"
-#include "ext_utility.hpp"
-#include "overloaded.hpp"
+#include <ext_infrastructure/ext_type_traits.hpp>
+#include <ext_infrastructure/ext_utility.hpp>
+#include <ext_infrastructure/overloaded.hpp>
 
 template<typename T>
 T QJsonValue_to_std_optional(QJsonValue v)

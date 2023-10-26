@@ -1,5 +1,5 @@
-﻿#include "keep_window_stays_on_top.hpp"
-#include "keep_window_stays_on_top_p.hpp"
+﻿#include <ext_widgets/keep_window_stays_on_top.hpp>
+#include <ext_widgets/keep_window_stays_on_top_p.hpp>
 
 #include <QTimer>
 

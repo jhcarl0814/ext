@@ -1,5 +1,5 @@
-﻿#include "menu_positioned.hpp"
-#include "menu_positioned_p.hpp"
+﻿#include <ext_widgets/menu_positioned.hpp>
+#include <ext_widgets/menu_positioned_p.hpp>
 
 #include <QEvent>
 #include <QScreen>

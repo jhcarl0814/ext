@@ -3,7 +3,7 @@
 
 #include <QWebEngineView>
 
-#include "../ext_infrastructure/ext_type_traits.hpp"
+#include <ext_infrastructure/ext_type_traits.hpp>
 
 class WebEngineView: public QWebEngineView
 {

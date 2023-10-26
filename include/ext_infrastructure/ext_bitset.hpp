@@ -3,7 +3,7 @@
 
 //#include <array>
 #include <bitset>
-#include "ext_string.hpp"
+#include <ext_infrastructure/ext_string.hpp>
 #include <boost/stl_interfaces/iterator_interface.hpp>
 
 template<template_str_t template_str>

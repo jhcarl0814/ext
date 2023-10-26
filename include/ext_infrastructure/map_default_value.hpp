@@ -3,7 +3,7 @@
 
 #include <map>
 
-#include "ext_type_traits.hpp"
+#include <ext_infrastructure/ext_type_traits.hpp>
 #include <boost/mp11.hpp>
 
 

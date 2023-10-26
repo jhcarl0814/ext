@@ -1,10 +1,10 @@
 ﻿
-#include "ext_error_handling.hpp"
+#include <ext_infrastructure/ext_error_handling.hpp>
 
 #include <QScopeGuard>
 #include <QDebug>
-#include "ext_string.hpp"
-#include "ext_algorithm.hpp"
+#include <ext_infrastructure/ext_string.hpp>
+#include <ext_infrastructure/ext_algorithm.hpp>
 
 std::basic_string<TCHAR> GetLastErrorReturnValueToString(DWORD dwMessageId, std::string_view function_name)
 {

@@ -7,7 +7,7 @@
 #include <dwmapi.h>
 #pragma comment(lib, "dwmapi.lib")
 
-#include "ext_infrastructure/ext_error_handling.hpp"
+#include <ext_infrastructure/ext_error_handling.hpp>
 
 #include <string>
 #include <string_view>

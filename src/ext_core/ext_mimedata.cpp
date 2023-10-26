@@ -1,6 +1,7 @@
-﻿#include "ext_mimedata.hpp"
+﻿#include <ext_core/ext_mimedata.hpp>
 
 #include <QBuffer>
+#include <QForeach>
 
 #include <QImage>
 
@@ -10,7 +11,7 @@ QMimeData *copyMimeData(QMimeData const *mimeReference)
 {
     QMimeData *mimeCopy = new QMimeData();
 
-    foreach(QString format, mimeReference->formats())
+    Q_FOREACH(QString format, mimeReference->formats())
     {
         // Retrieving data
         QByteArray data = mimeReference->data(format);

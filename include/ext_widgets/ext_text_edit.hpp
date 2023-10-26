@@ -7,8 +7,8 @@
 #include <QStyle>
 #include <QScrollBar>
 
-#include "../ext_infrastructure/ext_type_traits.hpp"
-#include "../ext_infrastructure/ext_debug.hpp"
+#include <ext_infrastructure/ext_type_traits.hpp>
+#include <ext_infrastructure/ext_debug.hpp>
 
 void make_plain_text_edit_readonly(QPlainTextEdit *plain_text_edit);
 

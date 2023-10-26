@@ -1,8 +1,8 @@
-﻿#include "ext_image.hpp"
+﻿#include <ext_gui/ext_image.hpp>
 
 #include <QPainter>
 
-#include "../ext_core/ext_thread.hpp"
+#include <ext_core/ext_thread.hpp>
 
 QByteArray QImage_to_QByteArray(QImage image)
 {

@@ -9,12 +9,12 @@
 #include <set>
 #include <ranges>
 #include <algorithm>
-#include "../ext_infrastructure/ext_error_handling.hpp"
-#include "../ext_infrastructure/ext_string.hpp"
-#include "../ext_infrastructure/ext_utility.hpp"
-#include "../ext_infrastructure/ext_ranges.hpp"
-#include "../ext_infrastructure/ext_debug.hpp"
-#include "../ext_infrastructure/ext_thread.hpp"
+#include <ext_infrastructure/ext_error_handling.hpp>
+#include <ext_infrastructure/ext_string.hpp>
+#include <ext_infrastructure/ext_utility.hpp>
+#include <ext_infrastructure/ext_ranges.hpp>
+#include <ext_infrastructure/ext_debug.hpp>
+#include <ext_infrastructure/ext_thread.hpp>
 
 #include <QBuffer>
 #include <QThread>

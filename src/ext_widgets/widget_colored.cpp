@@ -1,4 +1,4 @@
-﻿#include "widget_colored.hpp"
+﻿#include <ext_widgets/widget_colored.hpp>
 
 #include <QGraphicsOpacityEffect>
 

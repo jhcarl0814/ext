@@ -3,7 +3,7 @@
 
 #include <QScrollArea>
 
-#include "ext_infrastructure/ext_type_traits.hpp"
+#include <ext_infrastructure/ext_type_traits.hpp>
 
 class ScrollAreaVertical: public QScrollArea //https://forum.qt.io/topic/13374/solved-qscrollarea-vertical-scroll-only
 {

@@ -1,6 +1,8 @@
 ﻿#ifndef EXT_UTILITY_H
 #define EXT_UTILITY_H
 
+#include <type_traits>
+
 template<typename T>
 constexpr T &unmove(T &&t) { return static_cast<T &>(t); } //https://stackoverflow.com/a/67059296/8343353
 

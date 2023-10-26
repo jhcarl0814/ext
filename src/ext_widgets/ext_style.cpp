@@ -1,4 +1,4 @@
-﻿#include "ext_style.hpp"
+﻿#include <ext_widgets/ext_style.hpp>
 
 #include <QStyleOptionGroupBox>
 #include <QPainter>

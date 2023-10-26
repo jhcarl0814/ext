@@ -1,4 +1,4 @@
-﻿#include "escape_ampersand.hpp"
+﻿#include <ext_widgets/escape_ampersand.hpp>
 
 QString operator"" _s_esc_amp(char16_t const *str, std::size_t size) noexcept
 {

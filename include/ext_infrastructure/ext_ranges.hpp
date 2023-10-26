@@ -4,7 +4,7 @@
 #include <vector>
 #include <ranges>
 #include <QJsonArray>
-#include "ext_type_traits.hpp"
+#include <ext_infrastructure/ext_type_traits.hpp>
 #include <boost/utility/base_from_member.hpp>
 
 namespace deprecated

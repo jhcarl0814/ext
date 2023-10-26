@@ -1,4 +1,4 @@
-﻿#include "ext_string.hpp"
+﻿#include <ext_core/ext_string.hpp>
 
 #include <QApplication>
 

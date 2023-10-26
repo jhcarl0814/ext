@@ -1,6 +1,6 @@
 ﻿
-#include "ext_webengine.hpp"
-#include "ext_webengine_p.hpp"
+#include <ext_web/ext_webengine.hpp>
+#include <ext_web/ext_webengine_p.hpp>
 
 #include <QCursor>
 #include <QDesktopServices>
@@ -9,7 +9,7 @@
 #include <QApplication>
 #include <QToolTip>
 
-#include "../ext_infrastructure/ext_debug.hpp"
+#include <ext_infrastructure/ext_debug.hpp>
 
 void WebEngineView::ctor_impl()
 {

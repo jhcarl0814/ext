@@ -1,8 +1,8 @@
 ﻿#ifndef EXT_DEBUG_CORE_H
 #define EXT_DEBUG_CORE_H
 
-#include "ext_type_traits.hpp"
-#include "ext_typeinfo.hpp"
+#include <ext_infrastructure/ext_type_traits.hpp>
+#include <ext_infrastructure/ext_typeinfo.hpp>
 
 namespace ext_debug
 {

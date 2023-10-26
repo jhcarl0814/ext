@@ -1,7 +1,7 @@
-﻿#include "menu_window.hpp"
+﻿#include <ext_widgets/menu_window.hpp>
 
 #include <QHBoxLayout>
-#include "../ext_widgets/widget_consuming_click.hpp"
+#include <ext_widgets/widget_consuming_click.hpp>
 
 void attach_widget_consuming_click(QMenu *menu)
 {

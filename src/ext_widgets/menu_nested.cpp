@@ -1,5 +1,5 @@
-﻿#include "menu_nested.hpp"
-#include "menu_nested_p.hpp"
+﻿#include <ext_widgets/menu_nested.hpp>
+#include <ext_widgets/menu_nested_p.hpp>
 
 #include <QMouseEvent>
 

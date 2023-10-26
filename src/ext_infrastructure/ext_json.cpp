@@ -1,5 +1,5 @@
 ﻿
-#include "ext_json.hpp"
+#include <ext_infrastructure/ext_json.hpp>
 
 QJsonObject QJsonObject_extend(QJsonObject lhs, QJsonObject rhs)
 {

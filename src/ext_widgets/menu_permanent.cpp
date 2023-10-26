@@ -1,5 +1,5 @@
-﻿#include "menu_permanent.hpp"
-#include "menu_permanent_p.hpp"
+﻿#include <ext_widgets/menu_permanent.hpp>
+#include <ext_widgets/menu_permanent_p.hpp>
 
 void make_top_level_menu_not_shrink(QMenu *menu)
 {

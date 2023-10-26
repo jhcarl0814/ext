@@ -1,4 +1,4 @@
-﻿#include "ext_text_edit.hpp"
+﻿#include <ext_widgets/ext_text_edit.hpp>
 
 void make_plain_text_edit_readonly(QPlainTextEdit *plain_text_edit)
 {

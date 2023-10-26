@@ -1,6 +1,6 @@
 ﻿
-#include "ext_configs.hpp"
-#include "ext_string.hpp"
+#include <ext_infrastructure/ext_configs.hpp>
+#include <ext_infrastructure/ext_string.hpp>
 
 #include <QProcess>
 

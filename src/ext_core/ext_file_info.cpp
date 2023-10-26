@@ -1,5 +1,5 @@
 ﻿
-#include "ext_file_info.hpp"
+#include <ext_core/ext_file_info.hpp>
 
 std::map<QString, DWORD> const FILE_ATTRIBUTE_label_to_value_mapping = {
     {"FILE_ATTRIBUTE_READONLY(0x00000001)", FILE_ATTRIBUTE_READONLY},

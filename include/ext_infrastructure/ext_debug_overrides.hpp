@@ -3,7 +3,7 @@
 
 #pragma warning(disable : 4996) //https://stackoverflow.com/questions/56132985/suppressing-warning-c4996-why-not-working
 
-#include "ext_string.hpp"
+#include <ext_infrastructure/ext_string.hpp>
 
 #include <locale>
 #include <codecvt>

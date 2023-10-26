@@ -11,6 +11,8 @@ struct ext_dir_iterator: boost::stl_interfaces::proxy_iterator_interface<ext_dir
     std::optional<QFileInfo> value;
 
   public:
+    using iterator_category = std::input_iterator_tag;
+
     ext_dir_iterator();
     template<typename... Ts>
     ext_dir_iterator(Ts &&...vs)

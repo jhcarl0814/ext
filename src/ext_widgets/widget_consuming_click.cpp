@@ -1,4 +1,4 @@
-﻿#include "widget_consuming_click.hpp"
+﻿#include <ext_widgets/widget_consuming_click.hpp>
 
 #include <QMouseEvent>
 

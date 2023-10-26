@@ -1,5 +1,5 @@
 ﻿
-#include "ext_debug.hpp"
+#include <ext_infrastructure/ext_debug.hpp>
 
 namespace ext_debug
 {

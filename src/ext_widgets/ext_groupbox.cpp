@@ -1,4 +1,4 @@
-﻿#include "ext_groupbox.hpp"
+﻿#include <ext_widgets/ext_groupbox.hpp>
 
 #include <QStyleOptionGroupBox>
 

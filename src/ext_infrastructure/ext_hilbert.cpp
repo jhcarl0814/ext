@@ -1,8 +1,8 @@
 ﻿
-#include "ext_hilbert.hpp"
+#include <ext_infrastructure/ext_hilbert.hpp>
 
 #include <ranges>
-#include "ext_debug.hpp"
+#include <ext_infrastructure/ext_debug.hpp>
 
 void test_hilbert()
 {

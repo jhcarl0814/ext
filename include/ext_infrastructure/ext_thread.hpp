@@ -10,9 +10,9 @@
 #include <condition_variable>
 #include <coroutine>
 #include <cassert>
-#include "ext_debug.hpp"
-#include "overloaded.hpp"
-#include "ext_utility.hpp"
+#include <ext_infrastructure/ext_debug.hpp>
+#include <ext_infrastructure/overloaded.hpp>
+#include <ext_infrastructure/ext_utility.hpp>
 
 template<typename T>
 struct shared_state_t
