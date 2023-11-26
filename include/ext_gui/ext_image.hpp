@@ -129,63 +129,63 @@ BOOL CALLBACK EnumImages(HMODULE hmodule, LPCTSTR type, LPTSTR lpszName, LONG_PT
 {
     auto &[it_outer, func_get_it_inner_from_it_outer, EnumImages_error] = *reinterpret_cast<std::tuple<It_Outer &, Func_Get_It_Inner_From_It_Outer &, std::optional<std::basic_string<TCHAR>> &> *>(ptr);
 
-    if(auto hRes = FindResource(hmodule, lpszName, type); hRes == nullptr)
+    if(auto hRes_GROUP_ICON_OR_CURSOR = FindResource(hmodule, lpszName, type); hRes_GROUP_ICON_OR_CURSOR == nullptr)
     {
         EnumImages_error.emplace(GetLastErrorReturnValueToString(GetLastError(), "FindResource"));
         return FALSE;
     }
-    else if(auto size = SizeofResource(hmodule, hRes); size == 0)
+    else if(auto size_GROUP_ICON_OR_CURSOR = SizeofResource(hmodule, hRes_GROUP_ICON_OR_CURSOR); size_GROUP_ICON_OR_CURSOR == 0)
     {
         EnumImages_error.emplace(GetLastErrorReturnValueToString(GetLastError(), "SizeofResource"));
         return FALSE;
     }
-    else if(auto hg = LoadResource(hmodule, hRes); hg == nullptr)
+    else if(auto hg_GROUP_ICON_OR_CURSOR = LoadResource(hmodule, hRes_GROUP_ICON_OR_CURSOR); hg_GROUP_ICON_OR_CURSOR == nullptr)
     {
         EnumImages_error.emplace(GetLastErrorReturnValueToString(GetLastError(), "LoadResource"));
         return FALSE;
     }
-    else if(auto bytes = LockResource(hg); bytes == nullptr)
+    else if(auto bytes_GROUP_ICON_OR_CURSOR = LockResource(hg_GROUP_ICON_OR_CURSOR); bytes_GROUP_ICON_OR_CURSOR == nullptr)
     {
         EnumImages_error.emplace(TEXT("LockResource failed"));
         return FALSE;
     }
     else
     {
-        GRPICONDIR &grp_icon_dir = *(GRPICONDIR *)bytes;
+        GRPICONDIR &grp_icon_dir = *(GRPICONDIR *)bytes_GROUP_ICON_OR_CURSOR;
         *it_outer++ = {};
         auto &&it_inner = func_get_it_inner_from_it_outer(it_outer);
         for(auto i : std::views::iota(decltype(grp_icon_dir.idCount)(0), grp_icon_dir.idCount))
         {
             //            ext_debug_log((grp_icon_dir.idEntries[i].bWidth, grp_icon_dir.idEntries[i].bHeight, grp_icon_dir.idEntries[i].bColorCount, grp_icon_dir.idEntries[i].wPlanes, grp_icon_dir.idEntries[i].wBitCount), qDebug_compact());
 
-            if(auto hRes = FindResource(hmodule, MAKEINTRESOURCE(grp_icon_dir.idEntries[i].nID), []
+            if(auto hRes_ICON_OR_CURSOR = FindResource(hmodule, MAKEINTRESOURCE(grp_icon_dir.idEntries[i].nID), []
                    {
                        if(format == template_str_t("icon")) return RT_ICON;
                        else if(format == template_str_t("cursor")) return RT_CURSOR;
                        else std::unreachable(); }());
-                hRes == nullptr)
+                hRes_ICON_OR_CURSOR == nullptr)
             {
                 EnumImages_error.emplace(GetLastErrorReturnValueToString(GetLastError(), "FindResource"));
                 return FALSE;
             }
-            else if(auto size = SizeofResource(hmodule, hRes); size == 0)
+            else if(auto size_ICON_OR_CURSOR = SizeofResource(hmodule, hRes_ICON_OR_CURSOR); size_ICON_OR_CURSOR == 0)
             {
                 EnumImages_error.emplace(GetLastErrorReturnValueToString(GetLastError(), "SizeofResource"));
                 return FALSE;
             }
-            else if(auto hg = LoadResource(hmodule, hRes); hg == nullptr)
+            else if(auto hg_ICON_OR_CURSOR = LoadResource(hmodule, hRes_ICON_OR_CURSOR); hg_ICON_OR_CURSOR == nullptr)
             {
                 EnumImages_error.emplace(GetLastErrorReturnValueToString(GetLastError(), "LoadResource"));
                 return FALSE;
             }
-            else if(auto bytes = LockResource(hg); bytes == nullptr)
+            else if(auto bytes_ICON_OR_CURSOR = LockResource(hg_ICON_OR_CURSOR); bytes_ICON_OR_CURSOR == nullptr)
             {
                 EnumImages_error.emplace(TEXT("LockResource failed"));
                 return FALSE;
             }
             else
             {
-                if(HICON hIcon = CreateIconFromResourceEx((PBYTE)bytes, size, TRUE, 0x00030000, 0, 0, /*LR_SHARED*/ 0); hIcon == nullptr)
+                if(HICON hIcon = CreateIconFromResourceEx((PBYTE)bytes_ICON_OR_CURSOR, size_ICON_OR_CURSOR, TRUE, 0x00030000, 0, 0, /*LR_SHARED*/ 0); hIcon == nullptr)
                 {
                     EnumImages_error.emplace(GetLastErrorReturnValueToString(GetLastError(), "CreateIconFromResourceEx"));
                     return FALSE;
@@ -193,8 +193,14 @@ BOOL CALLBACK EnumImages(HMODULE hmodule, LPCTSTR type, LPTSTR lpszName, LONG_PT
                 else
                 {
                     *it_inner++ = QImage::fromHICON(hIcon);
-
+#ifdef __clang__
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wmissing-field-initializers"
+#endif
                     if(ICONINFOEX ii{sizeof(ii), TRUE}; !GetIconInfoEx(hIcon, &ii))
+#ifdef __clang__
+    #pragma clang diagnostic pop
+#endif
                     {
                         EnumImages_error.emplace(TEXT("GetIconInfoEx failed"));
                         return FALSE;

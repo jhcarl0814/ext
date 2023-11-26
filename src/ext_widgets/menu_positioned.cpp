@@ -14,6 +14,8 @@ bool QObject_make_menu_button_menu::eventFilter(QObject *watched, QEvent *event)
         menu->move(btn->parentWidget()->mapToGlobal(btn->pos()) - QPoint(0, menu->size().height()));
         return true;
         break;
+    default:
+        break;
     }
     return false;
 }
@@ -32,6 +34,8 @@ bool QObject_make_menu_top_right_menu::eventFilter(QObject *watched, QEvent *eve
     case QEvent::Type::Show:
         menu->move(pos - QPoint(0, menu->size().height()));
         return true;
+        break;
+    default:
         break;
     }
     return false;
@@ -77,6 +81,8 @@ bool QObject_make_menu_in_screen::eventFilter(QObject *watched, QEvent *event)
         }
         return true;
     } break;
+    default:
+        break;
     }
     return false;
 }

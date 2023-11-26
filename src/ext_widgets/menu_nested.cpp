@@ -48,6 +48,8 @@ bool QObject_make_menu_not_trigger_child_when_right_click_child::eventFilter(QOb
             }
         }
     } break;
+    default:
+        break;
     }
     return false;
 }

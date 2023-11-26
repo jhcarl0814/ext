@@ -53,7 +53,7 @@ struct shared_state_t
                                {
                                    std::move(continuation)(std::optional<reference_wrapper_type>(std::in_place, std::get<0>(state)));
                                },
-                               [this](std::function<void(std::optional<std::exception_ptr>)> &continuation)
+                               [](std::function<void(std::optional<std::exception_ptr>)> &continuation)
                                {
                                    std::move(continuation)(std::nullopt);
                                },
@@ -79,7 +79,7 @@ struct shared_state_t
                                {
                                    std::move(continuation)(std::variant<reference_wrapper_type, std::exception_ptr>(std::in_place_index<1>, std::get<1>(state)));
                                },
-                               [this](std::function<void(std::optional<reference_wrapper_type>)> &continuation)
+                               [](std::function<void(std::optional<reference_wrapper_type>)> &continuation)
                                {
                                    std::move(continuation)(std::nullopt);
                                },

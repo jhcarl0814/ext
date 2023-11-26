@@ -18,6 +18,8 @@ bool QObject_make_top_level_menu_not_hide_when_toggling_checkable_child_and_not_
         widget->setVisible(true);
         return true;
         break;
+    default:
+        break;
     }
     return false;
 }
@@ -53,6 +55,8 @@ bool QObject_make_non_top_level_menu_not_hide_when_toggling_checkable_child::eve
         }
         return true;
         break;
+    default:
+        break;
     }
     return false;
 }
@@ -83,6 +87,8 @@ bool QObject_make_menu_not_hide_when_not_clicking_on_action::eventFilter(QObject
             return true;
         }
     } break;
+    default:
+        break;
     }
     return false;
 }

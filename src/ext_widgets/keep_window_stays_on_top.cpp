@@ -12,6 +12,8 @@ bool QObject_keep_window_stays_on_top::eventFilter(QObject *watched, QEvent *eve
         widget->raise();
         return true;
         break;
+    default:
+        break;
     }
     return false;
 }

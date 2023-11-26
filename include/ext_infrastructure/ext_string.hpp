@@ -65,7 +65,21 @@ decltype(auto) string_or_string_view_to_string_or_string_view(String_Or_StringVi
         }
         else if constexpr(std::is_same_v<Char_From, wchar_t>)
         {
+#ifdef __clang__
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#endif
+#ifdef _MSC_VER
+    #pragma warning(push)
+    #pragma warning(disable : 4996)
+#endif
             return std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>>().to_bytes(string_or_string_view_to_string(s)); // https://stackoverflow.com/questions/2573834/c-convert-string-or-char-to-wstring-or-wchar-t
+#ifdef __clang__
+    #pragma clang diagnostic pop
+#endif
+#ifdef _MSC_VER
+    #pragma warning(pop)
+#endif
         }
         else if constexpr(std::is_same_v<Char_From, QChar>)
         {
@@ -79,7 +93,21 @@ decltype(auto) string_or_string_view_to_string_or_string_view(String_Or_StringVi
     {
         if constexpr(std::is_same_v<Char_From, char>)
         {
+#ifdef _MSC_VER
+    #pragma warning(push)
+    #pragma warning(disable : 4996)
+#endif
+#ifdef __clang__
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#endif
             return std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>>().from_bytes(string_or_string_view_to_string(s)); //https://stackoverflow.com/questions/2573834/c-convert-string-or-char-to-wstring-or-wchar-t
+#ifdef __clang__
+    #pragma clang diagnostic pop
+#endif
+#ifdef _MSC_VER
+    #pragma warning(pop)
+#endif
         }
         else if constexpr(std::is_same_v<Char_From, wchar_t>)
         {

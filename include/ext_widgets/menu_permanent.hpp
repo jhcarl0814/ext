@@ -14,7 +14,7 @@ void make_top_level_menu_not_hide_when_toggling_checkable_child_and_not_hide_and
     QMenu *menu, Fn_Close_Window_Menu fn_close_window_menu = make_top_level_menu_not_hide_when_toggling_checkable_child_and_not_hide_and_close_some_window_menu_when_clicking_child_default_fn)
 {
     make_top_level_menu_not_hide_when_toggling_checkable_child_and_not_hide_and_close_some_window_menu_when_clicking_child_impl(menu);
-    QObject::connect(menu, &QMenu::triggered, menu, [menu, fn_close_window_menu](QAction *action)
+    QObject::connect(menu, &QMenu::triggered, menu, [/*menu, */ fn_close_window_menu](QAction *action)
         {
             //            ext_debug_log((menu), qDebug_compact());
             if(!action->isCheckable())

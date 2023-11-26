@@ -7,6 +7,14 @@
 #include <boost/mp11.hpp>
 
 
+#ifdef _MSC_VER
+    #pragma warning(push)
+    #pragma warning(disable : 4172)
+#endif
+#ifdef __clang__
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wreturn-stack-address"
+#endif
 template<typename Map_T, typename U>
 auto get1(Map_T &&map, typename remove_cvlref_t<Map_T>::key_type const &key, U &&default_value) -> std::conditional_t<std::is_lvalue_reference_v<Map_T> != std::is_lvalue_reference_v<U>,
     typename remove_cvlref_t<Map_T>::mapped_type,
@@ -20,6 +28,12 @@ auto get1(Map_T &&map, typename remove_cvlref_t<Map_T>::key_type const &key, U &
         return std::forward_like<Map_T>(it->second);
     else
         return std::forward<U>(default_value);
+#ifdef _MSC_VER
+    #pragma warning(pop)
+#endif
+#ifdef __clang__
+    #pragma clang diagnostic pop
+#endif
 }
 
 template<typename Map_T, typename U>
