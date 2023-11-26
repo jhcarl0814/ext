@@ -13,11 +13,13 @@
 #include <string_view>
 #include <map>
 #include <ranges>
+#include <span>
 #include <boost/functional/value_factory.hpp>
 
 #include <QScopeGuard>
 
 #include <QImage>
+#include <QPixmap>
 
 template<typename It>
 void get_envoronment_variables(It it)

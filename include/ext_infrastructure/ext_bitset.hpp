@@ -41,6 +41,7 @@ namespace std
     {
         std::conditional_t<is_const, bitset<N> const, bitset<N>> *container_;
         std::size_t index_;
+        using iterator_category = std::random_access_iterator_tag;
 
         constexpr bitset_iterator() noexcept {}
 
